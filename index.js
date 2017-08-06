@@ -1,16 +1,21 @@
-var app = require('express')();
+var express = require('express');
+var path = require('path');
+var app = express();
+
 var http = require('http').Server(app);
 var WebSocket = require('ws');
 
+app.set('port', 3000);
+
+app.use(express.static(path.join(__dirname,'public')));
+
 var wss = new WebSocket.Server({port:8080});
 
-app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html');
+var server = app.listen(app.get('port'), function() {
+	var port = server.address().port;
+	
 });
 
 
-http.listen(3000, function(){
-	console.log("listening on *:3000");
-});
 
 
