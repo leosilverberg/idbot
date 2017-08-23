@@ -123,27 +123,38 @@ def response(sentence, userID='123', show_details=False):
 # In[ ]:
 
 
-from flask import Flask, render_template, session, request
-from flask_socketio import SocketIO
-import time
 
-async_mode = None
+
+from flask import Flask, render_template, session, request
+from flask.ext.socketio import SocketIO, emit, join_room
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-sio = SocketIO(app, async_mode=async_mode)
-thread = None
+app.config['SECRET_KEY'] = 'secret'
+socketio = SocketIO(app)
+
+import eventlet
+eventlet.monkey_patch()
 
 @app.route('/')
-def index():
-    return render_template('index.html', async_mode=sio.async_mode)
+def chat():
+    return render_template('index.html')
 
-@sio.on('message')
-def handle_message(message):
-    sio.emit('message', message)
-    sio.emit('message', response(message))
-    
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@socketio.on('message', namespace='/chat')
+def chat_message(message):
+    print(message['data']['message'])
+    print(classify(message['data']['message']))
+    emit('bot_message',{'data': response(message['data']['message'])}, broadcast = True)
+
+@socketio.on('connect', namespace='/chat')
+def test_connect():
+    emit('my response', {'data': 'Connected', 'count':0})
 
 if __name__ == '__main__':
-    sio.run(app)
+    CORS(app)
+    socketio.run(app,host='0.0.0.0', debug = False)
 
