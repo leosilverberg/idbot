@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
+app.config['FLASK_DEBUG'] = 1
 socketio = SocketIO(app)
 
 import eventlet
@@ -29,4 +30,4 @@ def test_connect():
 
 if __name__ == '__main__':
     CORS(app)
-    socketio.run(app,host='0.0.0.0', debug = False)
+    socketio.run(app,host='0.0.0.0', debug = True)

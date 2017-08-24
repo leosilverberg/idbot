@@ -18,10 +18,17 @@ textarea {
     color: #222;
 }
 
+html{
+    min-height: 100%;
+}
+
 body {
     font-size: 1em;
     line-height: 1.4;
-      background-color: #f7f7f7;
+    background-color: #FEFEFE;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
 a {
@@ -67,13 +74,11 @@ textarea {
    ========================================================================== */
 
 .header{
+    position: relative;;
+    z-index:100;
   width: 100%;
-  height: 50px;
+  height: 5%;
   background-image: linear-gradient( 135deg, #FCCF31 10%, #F55555 100%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-shadow: inset 0px -5px 20px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: inset 0px -5px 20px 0px rgba(0,0,0,0.2);
   box-shadow: inset 0px -5px 20px 0px rgba(0,0,0,0.2);
@@ -82,20 +87,31 @@ textarea {
 
 
 .main{
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+    position: relative;
+    width:100%;
    overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y:scroll;
   -webkit-overflow-scrolling: touch;
-  height:100%;
- 
+  margin: 0;
+  /* padding-bottom:100px; */
+  height: 90%;
+  /* background-color:#F55555; */
 
+  
+}
+
+#messages{
+    
 }
 
 .text-input-form{
-  background: white; padding: 10px 5px 10px  5px; position: fixed; bottom: 0; width: 100%; 
+    position: relative;
+    height:5%;
+  background: white; 
+  padding: 10px 5px 10px  5px; 
+  /* position: fixed;  */
+  /* bottom: 0;  */
+  width: 100%; 
 }
 
 .text-input-form input{
@@ -105,7 +121,7 @@ textarea {
 }
 
 .text-input-form button{
-  width: 19%; background:rgba(0,0,0,0.2); border: none;
+  width: 15%; background:rgba(0,0,0,0.2); border: none;
 }
 
 
