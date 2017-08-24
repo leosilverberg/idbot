@@ -17,7 +17,7 @@ function sendMessage() {
     console.log("sending");
     socket.emit('message', { data: { message: $('#m').val(), author: author } });
     $('#messages').append($('<li>').text($('#m').val()));
-    $('#m').val('');
+    $('#m').val('');/
     $('#m').focus();
     return false;
 };
