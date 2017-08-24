@@ -37,41 +37,6 @@
     <script src="static/js/vendor/socket.io.min.js"></script>
     <script src="static/js/helper.js"></script>
     <script src="static/js/main.js"></script>
-    <script type="text/javascript" charset="utf-8">
-    // Use a "/test" namespace.
-    // An application can open a connection on multiple namespaces, and
-    // Socket.IO will multiplex all those connections on a single
-    // physical channel. If you don't care about multiple channels, you
-    // can set the namespace to an empty string.
-    namespace = '/test';
-    var channel = "/chat";
-    // Connect to the Socket.IO server.
-    // The connection URL has the following format:
-    //     http[s]://<domain>:<port>[/<namespace>]
-    var socket = io.connect('http://' + document.domain + ':' + location.port + channel);
-    //var socket = io.connect(location.protocol + '//' + document.domain + ':' + 5000);
-    // Event handler for new connections.
-    // The callback function is invoked when a connection with the
-    // server is established.
-    socket.on('connect', function() {
-        socket.on('bot_message', function(msg) {
-            console.log(msg.data);
-            $('#messages').append($('<li>').text(msg.data));
-        });
-
-    });
-
-    var author = "leo";
-
-    function sendMessage() {
-        console.log("sending");
-        socket.emit('message', { data: { message: $('#m').val(), author: author } });
-        $('#messages').append($('<li>').text($('#m').val()));
-        $('#m').val('');
-        $('#m').focus();
-        return false;
-    };
-    </script>
 </body>
 
 </html>
