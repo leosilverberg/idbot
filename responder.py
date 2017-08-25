@@ -108,7 +108,7 @@ def response(sentence, userID='123', show_details=False):
                 # find a tag matching the first result
                 if i['tag'] == results[0][0]:
                     # a random response from the intent
-                    print(random.choice(i['responses']))
+                    # print(random.choice(i['responses']))
                     return random.choice(i['responses'])
 
             results.pop(0)
@@ -146,8 +146,8 @@ def login():
 
 @socketio.on('message', namespace='/chat')
 def chat_message(message):
-    print(message['data']['message'])
-    print(classify(message['data']['message']))
+    print('u-message:'+message['data']['message'])
+    print('b-classify:'+classify(message['data']['message']))
     emit('bot_message',{'data': response(message['data']['message'])}, broadcast = True)
 
 @socketio.on('connect', namespace='/chat')
