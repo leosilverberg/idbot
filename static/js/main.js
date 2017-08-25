@@ -7,7 +7,7 @@ resizeMain()
 socket.on('connect', function() {
     socket.on('bot_message', function(msg) {
         console.log(msg.data);
-        $('#messages').append('<li class="bot-message"><div class="b-message">'+msg.data+'</div></li>');
+        $('#messages').append('<li class="bot-message"><div class="b-message">'+msg.data+'<br>'+msg.classification+'</div></li>');
         updateScroll();
     });
 });

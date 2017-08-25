@@ -148,7 +148,7 @@ def login():
 def chat_message(message):
     print('u-message:',message['data']['message'])
     print('b-classify:',classify(message['data']['message']))
-    emit('bot_message',{'data': response(message['data']['message'])}, broadcast = True)
+    emit('bot_message',{'data': response(message['data']['message']), 'classification': classify(message['data']['message'])}, broadcast = True)
 
 @socketio.on('connect', namespace='/chat')
 def test_connect():
