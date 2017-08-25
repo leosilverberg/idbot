@@ -1,18 +1,27 @@
 {
   "name": "idbotv0",
   "version": "1.0.0",
-  "description": "",
+  "description": "idbot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "leosilverberg",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.3",
+    "express": "^4.15.4",
     "gulp": "^3.9.1",
     "socket.io": "^2.0.3",
     "websocket": "^1.0.24",
     "ws": "^3.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leosilverberg/idbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leosilverberg/idbot/issues"
+  },
+  "homepage": "https://github.com/leosilverberg/idbot#readme"
 }
