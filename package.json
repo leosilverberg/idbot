@@ -9,8 +9,18 @@
   "author": "leosilverberg",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "express-logger": "0.0.3",
     "gulp": "^3.9.1",
+    "method-override": "^2.3.9",
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.11.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.2.1",
     "socket.io": "^2.0.3",
     "websocket": "^1.0.24",
     "ws": "^3.1.0"

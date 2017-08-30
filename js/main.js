@@ -1,5 +1,5 @@
 var channel = "/chat";
-var socket = io.connect('http://' + document.domain + ':5000' + channel);
+var socket = io.connect('http://' + '192.168.0.28' + ':5000' + channel);
 var author = "leo";
 
 resizeMain()
