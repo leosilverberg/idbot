@@ -169,7 +169,42 @@ textarea {
 }
 
 
+.header-console{
+    height: 45px;
+    overflow:hidden;
+    border-bottom:1px solid rgba(255, 255, 255, 0.50);
+}
 
+.white-icon{
+    color:white;
+}
+
+.center-icon{
+    text-align:center;
+}
+
+.menu-button{
+    font-size:1.5em;
+    padding-top:10px;
+}
+
+.console p{
+    padding:0;
+    color:white;
+    margin:10px;
+}
+
+.menu-content{
+    display:none;
+}
+
+#login-container{
+    display:none;
+}
+
+#register-container{
+    display:none;
+}
 
 
 

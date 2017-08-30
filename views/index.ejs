@@ -18,13 +18,38 @@
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#222222">
+    <script src="https://use.fontawesome.com/b482cc1306.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header-menu">
+        <div class="pure-g header-console">
+            <div class="pure-u-2-24 center-icon">
+                <i class="fa fa-bars menu-button white-icon" aria-hidden="true"  onclick="menuButtonPress()"></i>
+            </div>
+            <div class="pure-u-22-24 console">
+                <p>idBot</p>
+            </div>
+        </div>
+
+        <div class="menu-content">
+            menu content
+            <div id="login-container" class="menu-item">
+                <form>
+                    <input id="login-email" placeholder="email"> </input>
+                    <input type="password" id="login-password" placeholder="password"></input>
+            </div>
+
+            <div id="register-container" class="menu-item">
+                register
+            </div>
+        </div>
+        
+        
     </header>
     <main class="main">
         <ul id="messages">

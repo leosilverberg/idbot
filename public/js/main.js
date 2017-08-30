@@ -2,6 +2,9 @@ var channel = "/chat";
 var socket = io.connect('http://' + '192.168.0.28' + ':5000' + channel);
 var serversocket = io();
 var author = "leo";
+var user = null;
+var headerMenuOpen = false;
+var menuState="none";
 
 // serversocket.on('connect', function(){
 //     console.log("connected to the server socket");
@@ -10,7 +13,7 @@ var author = "leo";
 console.log("running main");
 
 resizeMain();
-// checkAuth();
+checkAuth();
 
 socket.on('connect', function() {
     socket.on('bot_message', function(msg) {
@@ -23,8 +26,45 @@ socket.on('connect', function() {
 function checkAuth(){
     if(!user){
         console.log("not logged in!!!");
+        openHeaderMenu(200);
+        setMenuState("login");
     } else {
         console.log("logged in!!!");
+    }
+}
+
+function menuButtonPress(){
+    if(!headerMenuOpen){
+        openHeaderMenu(200);
+    } else{
+        closeHeaderMenu(200);
+    }
+    
+}
+
+function openHeaderMenu(speed){
+    $("#header-menu").animate({ height: "100vh" }, speed);
+    $(".menu-content").show();
+    headerMenuOpen = true;
+}
+
+function closeHeaderMenu(speed){
+    $(".menu-content").hide();
+    $("#header-menu").animate({ height: "45px" }, speed);
+    headerMenuOpen = false;
+}
+
+function setMenuState(state){
+    menuState = state;
+    switch(menuState){
+        case 'login':
+            $('.menu-item').not('#login-container').hide();
+            $("#login-container").show();
+            break;
+        case 'register':
+            $('.menu-item').not('#register-container').hide();
+            $("#register-contianer").show();
+            break;
     }
 }
 
